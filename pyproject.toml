@@ -1,0 +1,55 @@
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm"
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "whip"
+description = "Wikidata Handy Interface in Python."
+readme = "README.rst"
+requires-python = ">=3.10"
+keywords = [
+    "wikidata"
+]
+authors = [
+    {name = "Yoann Dupont"}
+]
+maintainers = [
+    {name = "Yoann Dupont"}
+]
+license = {text = "MIT License"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "pywikibot",
+    "requests",
+    "wikidataintegrator"
+]
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+
+
+[project.urls]
+homepage = "https://github.com/YoannDupont/whip"
+repository = "https://github.com/YoannDupont/whip"
+bug-tracker = "https://github.com/YoannDupont/whip/issues"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "whip.__version__"}
+
+
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+include = ["whip*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["whip.tests*"]  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
