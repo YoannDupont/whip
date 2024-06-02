@@ -8,13 +8,13 @@ __datatype2url = {
 }
 
 
-def naive_get(item, property_, additional_key=None):
+def naive_get(item, property_, extra_key=None):
     """propety_ as per PEP8 recommendation."""
     base = item["claims"][property_][0]["mainsnak"]["datavalue"]["value"]
 
-    # some properties have an "additional key" for some values (id, text, etc.)
-    if additional_key:
-        return base[additional_key]
+    # some properties have an "extra key" for some values (id, text, etc.)
+    if extra_key:
+        return base[extra_key]
     else:
         return base
 
