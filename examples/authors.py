@@ -1,13 +1,13 @@
 from whip.lasso import from_name, from_qid
 
-from whip.properties import instance_of, naive_get, label
+from whip.properties import class_set, naive_get, label
 
 def get_author(bookname, lang="en", N_candidates=5):
     """Basic function to get author name from a book name."""
 
     qids = from_name(bookname, langs=[lang], maximum_candidates=N_candidates)
     entries = [from_qid(qid) for qid in qids]
-    books = [entry for entry in entries if "Q7725634" in instance_of(entry)]
+    books = [entry for entry in entries if "Q7725634" in class_set(entry)]
     book_names = [label(book, lang) for book in books]
 
     author_qids = [

@@ -99,6 +99,8 @@ def instance_of(item):
 
 
 is_a = instance_of
+class_set = instance_of
+classes = instance_of
 
 
 def is_earth_location(item):
